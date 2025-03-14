@@ -15,54 +15,49 @@ body {
 }
 
 #start-game-screen {
-min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#skip-btn {
-  min-height: 100vh;
-    display: flex;
+    min-height: 100vh;
+    background-image: url("../image/Tabern.jpeg");
+    background-size: 100% 100%; 
     justify-content: center;
     align-items: center;
-  }
+}
 
 #start-game-btn {
-  padding: 0.5em 1.25em;
-  font-size: 1.25rem;
-}
-
-#skip-phase-btn {
-  padding: 0.1em 1.5em;
-  font-size: 1.25rem;
-}
-
-#attack-phase-btn {
-  padding: 0.1em 1.5em;
-  font-size: 1.25rem;
-}
-
-#move-phase-btn {
-  padding: 0.1em 1.5em;
-  font-size: 1.25rem;
-}
-
-#prepare-event-phase-btn {
-  padding: 0.1em 1.5em;
-  font-size: 1.25rem;
-}
-
-#perform-event-phase-btn {
-  padding: 0.1em 1.5em;
-  font-size: 1.25rem;
+    padding: 0.5em 1.25em;
+    font-size: 1.25rem;
+    margin-top: 25%;
+    margin-left: 45%;
 }
 
 #game-screen {
     min-height: 100vh;
-    display: none;
+    display: flex;
     background-image: url("../image/Board.jpg");
     background-size: 100% 100%;                                                
     background-position: center;
     background-repeat: no-repeat;
+    position: relative; /* Necesario para el posicionamiento de la tabla */
+    justify-content: center; /* Centra la tabla dentro del juego */
+    align-items: center;
+}
+
+#table { 
+  position: absolute;
+    top: 40%;
+    left: 75%;
+    width: 20%; 
+    border-collapse: collapse;
+    margin-top: 0px; /* Un poco de separación de la parte superior */
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo semi-transparente */
+    padding: 10px;
+}
+
+th, td {
+    border: 1px solid black;  
+    text-align: left; 
+    padding: 2px;
+}
+
+th {
+    background-color: rgb(211, 211, 211); 
 }

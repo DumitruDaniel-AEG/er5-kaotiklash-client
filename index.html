@@ -16,26 +16,30 @@
   <body>
     <div id="start-game-screen">
       <button type="button" id="start-game-btn">Start Game</button>
-
-      <button type="button" id="skip-phase-btn">Skip phase</button>
-
-      <button type="button" id="attack-phase-btn">Attack phase</button>
-
-      <button type="button" id="move-phase-btn">Move phase</button>
-
-      <button type="button" id="prepare-event-phase-btn">Preparation phase</button>
-
-      <button type="button" id="perform-event-phase-btn">Perform phase</button>
     </div>
 
-    <canvas id="game-screen" width="1920" height="1080">
+    <!-- Moví la tabla dentro del game-screen -->
+    <div id="game-screen" style="display: none;">
+      <table id="table">
+        <tr>
+            <th></th>
+            <th>Active Event</th>
+            <th>Remaining Event Time</th>
+        </tr>
+        <tr>
+            <th>Player 1</th>
+            <td>sedjds</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <th>Player 2</th>
+            <td>dfhdfh</td>
+            <td>3</td>
+        </tr>
+      </table>
+    </div>
 
-      <div id="skip-btn">
-        <button type="button" id="exit">exit</button>
-      </div>
-
-
-    </canvas>
+    <canvas id="game-screen-canvas" width="1920" height="1080"></canvas>
 
     <script type="module" src="./src/index.js"></script>
   </body>
