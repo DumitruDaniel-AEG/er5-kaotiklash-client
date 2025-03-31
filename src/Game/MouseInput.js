@@ -92,10 +92,10 @@ export default class MouseInput {
     const boxHeight = box.getHeight();
 
     const isOverBox =
-      this.#mouseXCoordinate >= boxX &&
-      this.#mouseXCoordinate <= boxX + boxWidth &&
-      this.#mouseYCoordinate >= boxY &&
-      this.#mouseYCoordinate <= boxY + boxHeight;
+      this.getMouseXCoordinate() >= boxX &&
+      this.getMouseXCoordinate() <= boxX + boxWidth &&
+      this.getMouseYCoordinate() >= boxY &&
+      this.getMouseYCoordinate() <= boxY + boxHeight;
 
     return isOverBox;
   }

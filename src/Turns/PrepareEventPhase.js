@@ -136,13 +136,9 @@ export default class PrepareEventPhase extends Phase {
   #selectCardFromHand() {
     for (let i = 0; i < this.#decksRelevants.length; i++) {
       let deck = this.#decksRelevants[i];
-
-      const hoveredCard = deck.lookForHoveredCard(this._mouseInput);
-
       for (let j = 0; j < deck.getCards().length; j++) {
         let card = deck.getCards()[j];
-
-        if (card === hoveredCard && this._mouseInput.isLeftButtonPressed()) {
+        if (card.isLeftClicked()) {
           card.setState(CardState.SELECTED);
 
           this.#selectedCard = card;
@@ -162,21 +158,14 @@ export default class PrepareEventPhase extends Phase {
   }
 
   #selectTargetGrid() {
-    let grids = this.#gridsRelevants;
-
-    let boxes = grids.getBoxes();
+    let boxes = this.#gridsRelevants.getBoxes();
+    this._mouseInput.detectMouseOverBox(boxes);
+    this._mouseInput.detectBoxThatIsntHoveredAnymore(boxes);
+    this._mouseInput.detectLeftClickOnBox(boxes);
 
     for (let i = 0; i < boxes.length; i++) {
       const box = boxes[i];
-
-      if (this._mouseInput.isMouseOverBox(box)) {
-        box.setState(BoxState.HOVERED);
-      }
-
-      if (
-        this._mouseInput.isLeftButtonPressed() &&
-        this._mouseInput.isMouseOverBox(box)
-      ) {
+      if (box.isLeftClicked() && !box.isOccupied()) {
         box.setState(BoxState.SELECTED);
         this.#selectedGrid = box;
         globals.currentState = PrepareEventState.END;
